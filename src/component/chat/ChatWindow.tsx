@@ -97,7 +97,7 @@ const ChatWindow: React.FC = () => {
         {questions.map((el, index) =>
           <button
             key={index}
-            className={`w-full text-left px-3 border rounded-lg text-gray-400 py-3 mt-2 bg-gray-900 text-sm
+            className={`w-full  hidden md:block text-left px-3 border rounded-lg text-gray-400 py-3 mt-2 bg-gray-900 text-sm
              ${selectedButton === index ? 'border-purple-700' : 'border-transparent'}`}
             onClick={() => { setSelectedButton(index); sendMessage(el.message) }}
           >
