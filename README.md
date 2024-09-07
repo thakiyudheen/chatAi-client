@@ -1,30 +1,19 @@
-# React + TypeScript + Vite
+# Chat Application with Bot
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a real-time chat application with bot integration, built using React, TypeScript, Vite, and Socket.IO for WebSocket communication. The chat app also ensures secure rendering of dynamic HTML responses from the bot using HTML sanitization.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Real-time Communication**: Powered by Socket.IO for client-server communication.
+- **Tailwind CSS**: Fully styled using Tailwind CSS for a responsive and modern design.
+- **Bot Integration**: Chat bot responds to user input with dynamically generated HTML, which is sanitized and safely injected into the DOM.
+- **TypeScript Support**: Ensures type safety across the application.
+- **HTML Sanitization**: To prevent XSS attacks, all bot responses are sanitized using `DOMPurify`.
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. **Clone the repository**:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+   ```bash
+   git clone https://github.com/your-repo/chat-app-bot.git
+   cd chat-app-bot
