@@ -6,7 +6,7 @@ import ChatWindow from './component/chat/ChatWindow'
 
 function App() {
   const [count, setCount] = useState(0)
-  //thsis is  start  
+  //this is  start  
 
   return (
       <Routes>
