@@ -16,16 +16,13 @@ export const SocketProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   useEffect(() => {
     
-    const newSocket = io('http://localhost:3000', {
+    const newSocket = io(import.meta.env.VITE_BACKEND_URL, {
       transports: ['websocket', 'polling'],
     });
 
     newSocket.on('connect', () => {
       console.log('WebSocket connected successfully');
     });
-
-    // newSocket.emit('message', { sender: 'thakiyudheen',message: 'iam okhy with that' });
-    // newSocket.emit('sendMessage', { name: 'thakiyudheen',message: 'iam okhy with that5%%%%%%%%%%%%%%%%%%%5' });
 
     newSocket.on('disconnect', () => {
       console.log('WebSocket disconnected');
