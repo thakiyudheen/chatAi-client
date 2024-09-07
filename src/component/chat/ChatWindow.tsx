@@ -92,7 +92,7 @@ const ChatWindow: React.FC = () => {
 
   return (
     <div className="flex md:flex-row flex-col justify-between font-Poppins p-8 bg-black">
-      <div className=" md:w-1/4 flex-col justify-center w-full bg-gray-950 m-2 rounded-lg px-3">
+      <div className=" md:w-1/4 flex-col justify-center w-full bg-black md:bg-gray-950 m-2 rounded-lg px-3">
         <h1 className='font-bold text-[3vh]  md:text-[5vh] md:text-center m-2  text-purple-700'><span className='text-gray-500'>Chat with</span> AI</h1>
         {questions.map((el, index) =>
           <button
@@ -108,11 +108,11 @@ const ChatWindow: React.FC = () => {
 
 
       </div>
-      <div className="flex flex-col md:w-full w-full h-[88vh] md:h-[90vh]  bg-black  custom-scrollbar">
+      <div className="flex flex-col md:w-full w-full h-[84vh] md:h-[90vh]  bg-black  custom-scrollbar">
         <div className="flex-1 overflow-y-auto p-4 space-y-4 items-end">
           {messages.length === 0 ? (
             <div className="text-center text-gray-500 flex flex-col items-center justify-center md:h-[60vh] h-[40vh]">
-              <HiOutlineChatAlt className='text-[7vh] text-purple-400' />
+              <HiOutlineChatAlt className='text-[4vh] md:text-[6vh] text-purple-400' />
               <small>Send your first message to start the conversation!</small>
             </div>
           ) : (
