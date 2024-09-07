@@ -3,16 +3,19 @@ import io, { Socket } from 'socket.io-client';
 
 interface SocketContextProps {
   socket: Socket | null;
+  error : string | null;
 }
 
 const SocketContext = createContext<SocketContextProps>({
-  socket: null
+  socket: null,
+  error : null
 });
 
 export const useSocket = () => useContext(SocketContext);
 
 export const SocketProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [socket, setSocket] = useState<Socket | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     
@@ -21,13 +24,18 @@ export const SocketProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     });
 
     newSocket.on('connect', () => {
-      console.log('WebSocket connected successfully');
+      console.log('WebSocket connected ..!');
+      setError(null); 
     });
 
     newSocket.on('disconnect', () => {
-      console.log('WebSocket disconnected');
+      console.log('Socket disconnected..........!');
     });
 
+    newSocket.on('connect_error', (err) => {
+      console.log('Connection error_______:', err);
+      setError(' Please try again later.');
+    });
     setSocket(newSocket);
     
     return () => {
@@ -39,7 +47,7 @@ export const SocketProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   
   return (
-    <SocketContext.Provider value={{ socket }}>
+    <SocketContext.Provider value={{ socket , error }}>
       {children}
     </SocketContext.Provider>
   );

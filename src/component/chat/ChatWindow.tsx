@@ -21,7 +21,7 @@ const ChatWindow: React.FC = () => {
   const messagesEndRef: any = useRef(null);
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
   const [selectedButton, setSelectedButton] = useState<number | null>(null);
-  const { socket } = useSocket()
+  const { socket , error } = useSocket()
 
 
   const scrollToBottom = () => {
@@ -29,6 +29,9 @@ const ChatWindow: React.FC = () => {
   }
 
   useEffect(() => {
+    if(error){
+      toast.error(error)
+    }
     socket?.on('response', (response) => {
       console.log('%%%%%%%%%%%%%%%%%%');
       if (response !== 'error') {
